@@ -15,4 +15,10 @@ describe('Laboratory', () => {
             test.getQuantity('C');
         }).toThrow(Error);
     });
+
+    test('initWithNullSubstanceListThrowsError', () => {
+        expect(() => {
+            new Laboratory(null);
+        }).toThrow(Error);
+    });
 });
