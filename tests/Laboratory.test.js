@@ -69,4 +69,22 @@ describe('Laboratory', () => {
         expect(test.getQuantity('B')).toBe(1);
         expect(test.getQuantity('D')).toBe(2);
     });
+
+    test('makeProductWithCircularReferences', () => {
+        const test = new Laboratory(['A', 'B', 'C', 'D']);
+        test.add('A', 0.1);
+        test.add('B', 1);
+        test.add('C', 0.5);
+        test.add('D', 0.5);
+        
+        test.make('C', 0.5, { 'A': 0.2, 'D': 1 });
+        
+        const produced = test.make('A', 1, { 'B': 1, 'C': 1 });
+        
+        expect(produced).toBe(1);
+        expect(test.getQuantity('A')).toBeCloseTo(1, 5);
+        expect(test.getQuantity('B')).toBe(0);
+        expect(test.getQuantity('C')).toBe(0);
+        expect(test.getQuantity('D')).toBe(0);
+    });
 });
