@@ -27,4 +27,18 @@ describe('Laboratory', () => {
             new Laboratory(['A', 'B', 'A']);
         }).toThrow(Error);
     });
+
+    test('addUnknownSubstanceThrowsError', () => {
+        const test = new Laboratory(['A', 'B']);
+        expect(() => {
+            test.add('C', 0.5);
+        }).toThrow(Error);
+    });
+
+    test('addKnownSubstanceWithNegativeQuantityThrowsError', () => {
+        const test = new Laboratory(['A', 'B']);
+        expect(() => {
+            test.add('A', -0.5);
+        }).toThrow(Error);
+    });
 });

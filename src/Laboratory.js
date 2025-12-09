@@ -20,6 +20,10 @@ class Laboratory {
         }
         return 0;
     }
+
+    add(substance, qty) {
+        
+    }
 }
 
 module.exports = Laboratory;
