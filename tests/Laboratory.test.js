@@ -41,4 +41,17 @@ describe('Laboratory', () => {
             test.add('A', -0.5);
         }).toThrow(Error);
     });
+
+    test('makeProductFromSubstances', () => {
+        const test = new Laboratory(['A', 'B', 'C']);
+        test.add('A', 10);
+        test.add('B', 20);
+        
+        const produced = test.make('C', 5, { 'A': 2, 'B': 3 });
+        
+        expect(produced).toBe(5);
+        expect(test.getQuantity('A')).toBe(0);
+        expect(test.getQuantity('B')).toBe(5);
+        expect(test.getQuantity('C')).toBe(5);
+    });
 });
