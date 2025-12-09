@@ -60,15 +60,13 @@ describe('Laboratory', () => {
         test.add('A', 10);
         test.add('B', 20);
         
-        // Première réaction: A + B -> C
         test.make('C', 5, { 'A': 2, 'B': 3 });
         
-        // Deuxième réaction: C + B -> D (utilise le produit C)
         const produced = test.make('D', 3, { 'C': 1, 'B': 2 });
         
-        expect(produced).toBe(3);
-        expect(test.getQuantity('C')).toBe(2);
-        expect(test.getQuantity('B')).toBe(-1);
-        expect(test.getQuantity('D')).toBe(3);
+        expect(produced).toBe(2);
+        expect(test.getQuantity('C')).toBe(3);
+        expect(test.getQuantity('B')).toBe(1);
+        expect(test.getQuantity('D')).toBe(2);
     });
 });
