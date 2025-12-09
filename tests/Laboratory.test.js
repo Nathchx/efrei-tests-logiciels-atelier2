@@ -21,4 +21,10 @@ describe('Laboratory', () => {
             new Laboratory(null);
         }).toThrow(Error);
     });
+
+    test('initWithDuplicateSubstanceListThrowsError', () => {
+        expect(() => {
+            new Laboratory(['A', 'B', 'A']);
+        }).toThrow(Error);
+    });
 });
