@@ -4,6 +4,10 @@ class Laboratory {
             throw new Error("Substance list cannot be empty");
         }
     }
+
+    getQuantity(substance) {
+        return -1.0;
+    }
 }
 
 module.exports = Laboratory;

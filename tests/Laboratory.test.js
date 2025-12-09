@@ -6,4 +6,13 @@ describe('Laboratory', () => {
             new Laboratory([]);
         }).toThrow(Error);
     });
+
+    test('initWithRegularSubstanceList', () => {
+        const test = new Laboratory(['A', 'B']);
+        expect(test.getQuantity('A')).toBe(0);
+        expect(test.getQuantity('B')).toBe(0);
+        expect(() => {
+            test.getQuantity('C');
+        }).toThrow(Error);
+    });
 });
