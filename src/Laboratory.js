@@ -22,7 +22,7 @@ class Laboratory {
     }
 
     add(substance, qty) {
-        
+        throw new Error(`Unknown substance (${substance}) or negative quantity (${qty})`);
     }
 }
 
